@@ -1,0 +1,125 @@
+# Node.js API
+
+# GET 요청: 메인 페이지 - 오늘의 라인업
+###
+GET http://localhost:4000/timetable
+
+# GET 요청: 메인 페이지 - 부스 랭킹 Top 5
+###
+GET http://localhost:4000/booth/ranking
+
+# GET 요청: - 부스 하나 조회
+###
+GET http://localhost:4000/booth/1
+
+# GET 요청: - 부스 전체 조회
+###
+GET http://localhost:4000/booth/all
+
+# GET 요청: 메인 페이지 - 한 줄 외치기 `키워드` 조회
+###
+GET http://localhost:4000/keyword
+
+# GET 요청: 공지 목록 조회
+###
+GET http://localhost:4000/notice
+
+# GET 요청: 한 부스 댓글 목록 조회
+###
+GET http://localhost:4000/booth/1/comment
+
+# GET 요청: 부스 필터 카테고리 목록
+###
+GET http://localhost:4000/booth/category
+
+# POST 요청: 관리자 부스 추가
+###
+POST http://localhost:4000/admin/booth
+Content-Type: application/json
+
+{
+    "name": "test1",
+    "category": "비주점",
+    "department": "희희낙락",
+    "description": "test1",
+    "liked": 0
+}
+
+# PUT 요청: 좋아요 추가
+###
+PUT http://localhost:4000/booth/1/liked
+Content-Type: application/json
+
+{
+    "likeCount": 22
+}
+
+# POST 요청: 부스 댓글 추가
+###
+POST http://localhost:4000/booth/comment/2
+authorization: Bearer 1eef6611-8819-6470-5eea-cfcfeae27635
+Content-Type: application/json
+
+{
+    "content": "새로운댓글1",
+    "emoji": "happy"
+}
+
+# POST 요청: 부스 댓글 수정
+###
+PUT http://localhost:4000/booth/1/comment/225
+authorization: Bearer 1eef6611-8819-6470-5eea-cfcfeae27635
+Content-Type: application/json
+
+{
+    "content": "수정된댓글2",
+    "emoji": "happy",
+    "boothId": 1
+}
+
+# DELETE 요청: 부스 댓글 삭제
+###
+DELETE http://localhost:4000/booth/1/comment/8
+authorization : Bearer 123451
+
+# POST 요청: 로그인
+###
+POST http://localhost:4000/user/lms
+Content-Type: application/json
+
+{
+    "studentId": "201901284",
+    "password": "rootroot1!"    
+}
+
+# GET 요청: 로그아웃
+###
+GET http://localhost:4000/user/logout
+authorization: Bearer 1eee596d-db8b-6970-32bd-47641e9f6474
+
+# GET 요청: 로그인 정보 불러오기
+###
+GET http://localhost:4000/user/me
+authorization: Bearer 1eee596d-db8b-6970-32bd-47641e9f6474
+Content-Type: application/json
+
+# GET 요청: 한줄 외치기 모두 조회
+###
+GET http://localhost:4000/sentence
+authorization: Bearer 123455
+Content-Type: application/json
+
+# POST 요청: 한줄 외치기 쓰기
+###
+POST http://localhost:4000/shout/add
+authorization: Bearer 1234
+Content-Type: application/json
+
+{
+    "content": "오 이 채팅 기능 대박이다!!",
+    "emoji": "happy!"    
+}
+
+# PUT 요청 : 관리자 부스 수정
+###
+PUT http://localhost:4000/admin/booth
